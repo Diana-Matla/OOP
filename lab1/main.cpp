@@ -1,26 +1,41 @@
-#include <iostream> 
+#include <iostream>
 #include "file.cpp"
 
 int main() {
-    int k = 3; // кількість товару під х
-    int w = 1; //кількість товару під y
-    Prices a{19, 89};
-    Prices b{13, 29};
-    Prices ra = a * k; // сума всього товару по х
-    Prices rb = b * w; // сума всього товару по y
-    Prices z = ra + rb; //загальна сума 
-    Prices s = z.round() ; // заокруглення
+    Prices a, b;
+    int ka, kb;
+    std::string filename = "file.txt";
 
-    mult(a,k);
-    
-    std::cout << "Сума товару1 = " << ra.grn << " грн " << ra.kop << " коп" << std::endl;
-    std::cout << "Сума товару2 = " << rb.grn << " грн " << rb.kop << " коп" << std::endl;
+    if (readfile(filename, a, ka, b, kb) == 0) {
+        
+        /*
+        Prices ra = mult(a, ka); // вартість всього товару a
+        Prices rb = mult(b, kb); // вартість всього товару b
+        Prices r = add(ra, rb); // загальна вартість товарів 
 
-    std::cout << "Загальна сума = " << z.grn << " грн " << z.kop << " коп" << std::endl;
+        printPrice("Вартість товару 1:", ra);
+        printPrice("Вартість товару 2:", rb);
+        printPrice("Загальна вартість:", r);
+        printPrice("Сума до оплати:", round(r));
+        */
 
-    std::cout << "Заокруглена сума = " << s.grn << " грн " << s.kop << " коп" << std::endl;
+        
+        mult_(a, ka);
+        printPrice("Вартість товару 1:", a);
 
-    std::cout << "функція= " << a.grn << " грн " << a.kop << " коп" << std::endl;
+        mult_(b, kb);
+        printPrice("Вартість товару 2:", b);
+
+        add_(a, b);
+        printPrice("Загальна вартість:", a);
+
+        round_(a);
+        printPrice("Сума до оплати:", a);
+        
+    }
+    else {
+        std::cout << "Файл <" << filename << "> не відкрився" << std::endl;
+    }
+
     return 0;
-
 }

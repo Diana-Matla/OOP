@@ -4,10 +4,16 @@
 #include"Mage.h"
 using namespace std;
 
-Mage::Mage(string n, int l, int h, int ap, int m)
-    : Character(n, l, h, ap)
+
+Mage::Mage(string n, int l, int h, int ap, int m): Character(n, l, h, ap)
 {
     mana = m;
+    cout << "Mage constructor\n";
+}
+
+Mage::~Mage()
+{
+    cout << "Mage destructor\n";
 }
 
 void Mage::performAttack() {
@@ -19,7 +25,7 @@ void Mage::MakeDamage(){
 }
 
 void Mage::performAttack(int bonusDamage) {
-    cout << "Warrior attacks with bonus damage: "
+    cout << "Mage attacks with bonus damage: "
          << attackPower + bonusDamage << endl;
 }
 

@@ -7,11 +7,11 @@
 
 using namespace std;
 
-const double EPS = 1e-10;
+const double EPS = 1e-12;
 
 // Знак числа
 int sign(double n) {
-    if (fabs(n) == 0) return 0;
+    if (fabs(n) < EPS) return 0;
     return (n > 0) ? 1 : -1;
 }
 
@@ -111,7 +111,7 @@ bool Triangle::IsDegenerate() const {
 
 
 //Площа трикутника
-double Triangle::triangleArea() const {
+/*double Triangle::triangleArea() const {
     double a = distance(A, B);
     double b = distance(B, C);
     double c = distance(C, A);
@@ -120,6 +120,13 @@ double Triangle::triangleArea() const {
     if (val < 0) val = 0;
     else val = sqrt(val); 
     return val;
+}*/
+
+double Triangle::triangleArea() const {
+    return fabs(
+        (B.x - A.x) * (C.y - A.y) -
+        (B.y - A.y) * (C.x - A.x)
+    ) / 2.0;
 }
 
 
@@ -154,11 +161,7 @@ void Triangle::PositionHeron(Point P) const {
     double S2 = T2.triangleArea();
     double S3 = T3.triangleArea();
 
-    if (fabs(S - (S1 + S2 + S3)) < EPS) {
-        cout << S << endl;
-        cout << S1 << endl;
-        cout << S2 << endl;
-        cout << S3 << endl;
+    if (fabs(S - (S1 + S2 + S3)) < EPS * S) {
         cout << "Heron: inside the triangle" << endl;
     }
     else

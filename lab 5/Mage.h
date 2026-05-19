@@ -1,16 +1,17 @@
-#ifndef ARCHER_H
-#define ARCHER_H
+#ifndef MAGE_H
+#define MAGE_H
 
 #include "character.h"
 #include <string>
 using namespace std;
 
-class Archer : public Character 
+class Mage : virtual public Character
 {
 protected:
-    int distance;
+    int mana;
 public:
-    Archer(string n, int l, int h, int ap, int dist);
+    Mage(string n, int l, int h, int ap, int m);
+    virtual ~Mage();
     void performAttack() override;
     void MakeDamage()override;
     void performAttack(int bonusDamage);

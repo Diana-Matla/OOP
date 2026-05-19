@@ -5,7 +5,11 @@
 using namespace std;
 
 FireMage::FireMage(string n, int l, int h, int ap, int m)
-    : Mage(n, l, h, ap, m){}
+    : Character(n, l, h, ap),  
+      Mage(n, l, h, ap, m)
+{
+    cout << "FireMage constructor\n";
+}
 
 void FireMage::performAttack() {
     cout << "FireMage casts FIRE spell" << endl;
@@ -16,7 +20,7 @@ void FireMage::MakeDamage(){
 }
 
 void FireMage::performAttack(int bonusDamage) {
-    cout << "Warrior attacks with bonus damage: "
+    cout << "FireMage attacks with bonus damage: "
          << attackPower + bonusDamage << endl;
 }
 

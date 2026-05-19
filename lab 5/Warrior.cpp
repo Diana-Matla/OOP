@@ -4,10 +4,15 @@
 #include"Warrior.h"
 using namespace std;
 
-Warrior::Warrior(string n, int l, int h, int ap, int str)
-    : Character(n, l, h, ap)
+Warrior::Warrior(string n, int l, int h, int ap, int str): Character(n, l, h, ap)
 {
     strength = str;
+    cout << "Warrior constructor\n";
+}
+
+Warrior::~Warrior()
+{
+    cout << "Warrior destructor\n";
 }
 
 void Warrior::performAttack() {

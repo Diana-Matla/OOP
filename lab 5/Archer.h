@@ -5,12 +5,13 @@
 #include <string>
 using namespace std;
 
-class Archer : public Character 
+class Archer : virtual public Character 
 {
 protected:
     int distance;
 public:
     Archer(string n, int l, int h, int ap, int dist);
+    virtual ~Archer();
     void performAttack() override;
     void MakeDamage()override;
     void performAttack(int bonusDamage);

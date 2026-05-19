@@ -6,9 +6,15 @@
 using namespace std;
 
 Archer::Archer(string n, int l, int h, int ap, int dist)
-    : Character(n, l, h, ap)
+ : Character(n, l, h, ap)
 {
     distance = dist;
+    cout << "Archer constructor\n";
+}
+
+Archer::~Archer()
+{
+    cout << "Archer destructor\n";
 }
 
 void Archer::performAttack() {
@@ -23,7 +29,7 @@ void Archer::MakeDamage(){
 }
 
 void Archer::performAttack(int bonusDamage) {
-    cout << "Warrior attacks with bonus damage: "
+    cout << "Archer attacks with bonus damage: "
          << attackPower + bonusDamage << endl;
 }
 

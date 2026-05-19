@@ -5,7 +5,11 @@
 using namespace std;
 
 IceMage::IceMage(string n, int l, int h, int ap, int m)
-    : Mage(n, l, h, ap, m){}
+    : Character(n, l, h, ap),
+      Mage(n, l, h, ap, m)
+{
+    cout << "IceMage constructor\n";
+}
 
 void IceMage::performAttack() {
     cout << "IceMage casts ICE spell" << endl;
@@ -16,7 +20,7 @@ void IceMage::MakeDamage(){
 }
 
 void IceMage::performAttack(int bonusDamage) {
-    cout << "Warrior attacks with bonus damage: "
+    cout << "IceMage attacks with bonus damage: "
          << attackPower + bonusDamage << endl;
 }
 

@@ -14,6 +14,7 @@ public:
     Warrior(string n, int l, int h, int ap, int str);
     void performAttack() override;
     void MakeDamage()override;
+    void performAttack(int bonusDamage);
     void displayInfo();
 };
 

@@ -10,7 +10,8 @@ using namespace std;
 
 int main() {
 
-    Warrior warrior("Thor", 10, 250, 30, 50);
+    Warrior* warrior = new Warrior("Thor", 10, 250, 30, 50);
+    //Warrior warrior("Thor", 10, 250, 30, 50);
 
     Archer archer("Legolas", 8, 180, 25, 40);
 
@@ -21,9 +22,9 @@ int main() {
     IceMage iceMage("Frost", 14, 160, 28, 90);
 
 
-    cout << "--------------CHARACTERS --------------\n\n";
+    cout << "--------------CHARACTERS --------------\n";
 
-    warrior.displayInfo();
+    warrior->displayInfo();
     cout << endl;
 
     archer.displayInfo();
@@ -39,13 +40,14 @@ int main() {
     cout << endl;
 
     cout << "              BATTLE\n";
-    cout << "--------------------------------------\n\n";
+    cout << "--------------------------------------\n";
 
 
     cout << "---- Warrior attack ----\n";
 
-    warrior.performAttack();
-    warrior.MakeDamage();
+    warrior->performAttack();
+    warrior->MakeDamage();
+    warrior->performAttack(20);
 
     cout << endl;
 
@@ -54,6 +56,7 @@ int main() {
 
     archer.performAttack();
     archer.MakeDamage();
+    archer.performAttack(30);
 
     cout << endl;
 
@@ -61,6 +64,7 @@ int main() {
 
     mage.performAttack();
     mage.MakeDamage();
+    mage.performAttack(20);
 
     cout << endl;
 
@@ -69,6 +73,7 @@ int main() {
 
     fireMage.performAttack();
     fireMage.MakeDamage();
+    fireMage.performAttack(30);
 
     cout << endl;
 
@@ -77,11 +82,12 @@ int main() {
 
     iceMage.performAttack();
     iceMage.MakeDamage();
+    iceMage.performAttack(20);
 
     cout << endl;
 
-    cout << "          POLYMORPHISM TEST\n";
-    cout << "--------------------------------------\n\n";
+    /*cout << "          POLYMORPHISM TEST\n";
+    cout << "--------------------------------------\n";
 
 
     Character* team[5];
@@ -99,11 +105,12 @@ int main() {
         team[i]->MakeDamage();
 
         cout << "------------------------\n";
-    }
+    }*/
 
 
     cout << "\n-------------------------------\n";
     cout << "        BATTLE END\n";
 
+    delete warrior;
     return 0;
 }

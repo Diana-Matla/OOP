@@ -13,6 +13,7 @@ public:
     Mage(string n, int l, int h, int ap, int m);
     void performAttack() override;
     void MakeDamage()override;
+    void performAttack(int bonusDamage);
     void displayInfo();
 };
 

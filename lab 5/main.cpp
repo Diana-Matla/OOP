@@ -5,6 +5,7 @@
 #include "Mage.h"
 #include "FireMage.h"
 #include "IceMage.h"
+#include "BattleMage.h"
 #include "UltimateHero.h"
 
 using namespace std;
@@ -20,10 +21,16 @@ int main() {
     FireMage* fireMage = new FireMage("Ignis", 15, 140, 35, 100);
     IceMage* iceMage = new IceMage("Frost", 14, 160, 28, 90);
 
-    cout << "\n========== ULTIMATE HERO (DIAMOND) ==========\n";
 
-    
+    cout << "\n========== BATTLEMAGE (2 PARENTS) ==========\n";
+
+    BattleMage battleMage("Gandalf", 18, 300, 45, 60, 120);
+
+
+    cout << "\n========== ULTIMATE HERO (3 PARENTS / DIAMOND) ==========\n";
+
     UltimateHero hero("Arthur", 20, 500, 40, 60, 70, 80);
+
 
     cout << "\n========== DISPLAY INFO ==========\n";
 
@@ -40,6 +47,9 @@ int main() {
     cout << endl;
 
     iceMage->displayInfo();
+    cout << endl;
+
+    battleMage.displayInfo();
     cout << endl;
 
     hero.displayInfo();
@@ -72,26 +82,31 @@ int main() {
     iceMage->MakeDamage();
     iceMage->performAttack(20);
 
+    cout << "\n---- BattleMage (2 PARENTS TEST) ----\n";
+    battleMage.performAttack();
+    battleMage.MakeDamage();
+
     cout << "\n---- Ultimate Hero (ROMB TEST) ----\n";
     hero.performAttack();
     hero.MakeDamage();
 
-    cout << "\n========== POLYMORPHISM TEST ==========\n";
+    /*cout << "\n========== POLYMORPHISM TEST ==========\n";
 
-    Character* team[6];
+    Character* team[7];
 
     team[0] = warrior;
     team[1] = archer;
     team[2] = mage;
     team[3] = fireMage;
     team[4] = iceMage;
-    team[5] = &hero;
+    team[5] = &battleMage;
+    team[6] = &hero;
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 7; i++) {
         team[i]->performAttack();
         team[i]->MakeDamage();
         cout << "------------------------\n";
-    }
+    }*/
 
     cout << "\n========== CLEANUP ==========\n";
 
@@ -100,7 +115,6 @@ int main() {
     delete mage;
     delete fireMage;
     delete iceMage;
-
 
     cout << "\n========== END ==========\n";
 

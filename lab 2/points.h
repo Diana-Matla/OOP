@@ -18,7 +18,7 @@ struct Triangle {
 
     bool IsDegenerate() const;
     double triangleArea() const;
-    bool PointIsOnEdge(Point P) const;
+    bool PointIsOnEdge(Point P)const;
     void PositionHeron(Point P) const ;
     void Position(Point P) const;
 };
